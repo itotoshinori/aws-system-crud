@@ -50,6 +50,8 @@ test:
 #
 production:
   <<: *default
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: aws_system_production
   username: root
   password: <%= ENV['AWS_SYSTEM_DATABASE_PASSWORD'] %>
